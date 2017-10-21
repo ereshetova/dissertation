@@ -3,8 +3,7 @@
 % If you give option 'draft' or 'draft*', the draft mode is set on
 \documentclass[dissertation,math,vertlayout]{aaltoseries}
 \usepackage[utf8]{inputenc}
-% Lipsum package generates bullshit
-\usepackage{lipsum}
+
 % Set the document languages
 \usepackage[finnish,english]{babel}
 \usepackage{amsmath,amssymb,amsthm}
@@ -27,16 +26,16 @@
 
 %% The abstract of the dissertation in English
 % Use this command!
-\draftabstract{\lipsum[1-3]}
+\draftabstract{TBD}
 % Let's add another one in Finnish
-\draftabstract[finnish]{\lipsum[4-6]}
+\draftabstract[finnish]{TBD}
 % And yet another one in Swedish
 %\draftabstract[swedish]{\lipsum[7-9]}
 
 %% Preface
 % If you write this somewhere else than in Helsinki, use the optional location.
 \begin{preface}[Sipoo]
-\lipsum[1-4]
+TBD
 \end{preface}
 
 %% Table of contents of the dissertation
@@ -44,94 +43,38 @@
 \tableofcontents
 
 % To be defined before generating list of publications. Leave off if no acknowledgement
-\languagecheck{the Institute of Language Checks}
+%\languagecheck{the Institute of Language Checks}
 
-%% For article dissertations, remove if you write a monograph dissertation.
 \listofpublications
 
 %% Add lists of figures and tables as you usually.
 
 %% Add list of abbreviations, list of symbols, etc., using your preferred package/method.
 
-%% The main matter, one can obviously use \input or \include
-\chapter{Chapter Heading}
-\section{Section Heading}
-\[
-\vec{F}=-G m_1 m_2 \frac{\vec{x}_2-\vec{x}_1}{\lVert{\vec{x}_2-\vec{x}_1}\rVert^3}
-\]
-\lipsum[1-4]
-\cite{Knuth1984:The-TeXbook}
+\chapter{Introduction}
+\label{sec:introduction}
+\input{chapters/introduction}                
 
+\chapter{Background}
+\label{sec:background}
+\input{chapters/background} 
 
-zzzzz zzzzz zzzzz zzzzz zzzzz zzzzz zzzzz zzzzz zzzzz 
-zzzzz zzzzz zzzzz zzzzz zzzzz zzzzz 
-\begin{quoting}
-aaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaa a aaaaa
-aaaaaaaaaa aaaaaaaaaa aaaaa aaaaaaaaaaa aaa aaaaaaaaaa aaaaa a aaaa aaaa
-aaaaaaaaaaaaaaaaaaaaaaa aaaa aaaaa aaaa
+\chapter{Process isolation and access control policies}
+\label{sec:ac-policies}
+\input{chapters/ac-policies} 
 
-bbbbb bbbbbbbb bbbbbbbbbb bbbb bbbb bbbb bbb bbbbb bbbbbbbb 
-bbbbbbbbbb bbbb bbbb bbbb bbb bbbbb bbbbbbbb bbbbbbbbbb bbbb bbbb 
-bbbb bbb bbbbb bbbbbbbb bbbbbbbbbb bbbb bbbb bbbb bbb 
-\end{quoting}
-cccc cccc cccc
+\chapter{OS Kernel Hardening}
+\label{sec:kernel-hardening}
+\input{chapters/kernel-hardening} 
 
-\section{Section Heading}
-$E=mc^2$
-\lipsum[5-6]
-%\input{dummymathcode/testcode.tex}
-\cite{WikiBooks2008:LaTeX}
-\subsection{Subsection Heading}
-$\Delta x\Delta p \gtrapprox \hbar$
-\lipsum[7-8]
-\subsection{Subsection Heading}
-\lipsum[9-10]
-\section{Section Heading}
-\lipsum[11-12]
-
-%% Examples of article references, remove these from your manuscript!
-% Uncomment them, if you want to see the results of these commands in this example document
-
- % Refer to the Journal paper 1 of this example document
-\citepub{j1} \& \cpub{j1} \& \cp{j1} \& \pageref{j1} \& \ref{j1}
-
-% Refer to the Conference paper of this example document
-\citepub[p.~2]{c1} \& \cpub[Sec.~ 1]{c1} \&  \cp[pp.~1--2]{c1} \& \pageref{c1} \& \ref{c1} 
-
-
-\chapter{Chapter Heading 2}
-\section{Sample Mathematics}
-%\input{dummymathcode/testmath.tex}
-\section{Section Heading}
-\lipsum[1-4]
-\section{Section Heading}
-\lipsum[5-6]
-\subsection{Subsection Heading}
-\lipsum[7-8]
-\subsection{Subsection Heading}
-\lipsum[9-10]
-\section{Section Heading}
-\lipsum[11-12]
-
-%% An example for changing the running header (the optional parameter)
-\chapter[Short Chapter Heading]{Chapter Heading 3}
-\section{Section Heading}
-\lipsum[1-4]
-\section{Section Heading}
-\lipsum[5-6]
-\subsection{Subsection Heading}
-\lipsum[7-8]
-\subsection{Subsection Heading}
-\lipsum[9-10]
-\section{Section Heading}
-\lipsum[11-22]
+\chapter{Discussion and Conclusion}
+\label{sec:discussion}
+\input{chapters/discussion} 
 
 \renewcommand{\bibname}{References}
 \bibliographystyle{plain} % Change as required
 \bibliography{references}  % remember to edit the file name
 
-
-%% The following commands are for article dissertations, remove them if you write a monograph dissertation.
 
 % Errata list, if you have errors in the publications.
 \errata
@@ -176,7 +119,7 @@ $\Delta x\Delta p \gtrapprox \hbar$
 \addpublicationpdf{publications/P5.pdf}
 
 
-\addpublication[submitted, conference]{Reshetova, Elena and Liljestrand, Hans and Paverd, Andrew and Asokan, N}{Towards Linux Kernel Memory Safet}{ACM Conference on Data and Application Security and Privacy}{Location, pages, and other detailed information}{March}{2018}{ACM}{c6}
+\addpublication[submitted]{Reshetova, Elena and Liljestrand, Hans and Paverd, Andrew and Asokan, N}{Towards Linux Kernel Memory Safety}{ACM Conference on Data and Application Security and Privacy}{Location, pages, and other detailed information}{March}{2018}{ACM}{c6}
 % Add the dissertation author's contribution to that publication.
 \addcontribution{The author did also this and that}
 % No errata
