@@ -1,0 +1,24 @@
+Outline the common problems in process isolation and access control policies: finding correct level of isolation, ac granularity, and flexibility to satisfy different use cases, managing complexity of constantly changing OSes (policy has to change together), development aspects (developers do not understand security, but understand (sometimes) what their processes/apps do), etc. 
+
+
+
+\section{Application/Process isolation using OS-level virtualization}
+
+One could think of it as alternative to the traditional AC mechanisms in linux-based OSes. 
+However, after analyzing history, existing state and shortcomings of these mechanisms (publication 2), the conclusion is that they are
+not yet mature enough to fully substitute the MACs, but should be used in conjunction. 
+
+Also here list all the changes in linux namespaces/containers that happened since. I guess future developments in the area goes into discussion? 
+
+\section{SEAndroid Mandatory access control}
+
+OK, so as we need MACs, we need to understand what are the main issues with their modern implementation and design on practice. 
+We choose the most popular mobile OS android and its mac mechanism SEAndroid at the point when android was just enabling as mandatory. 
+We looked into the issues with first practical seandoid policies in the field and found common pitfalls and issues. Refer to publication 3.
+We also proposed a set of tools that can help OEMs to develop a better policy. 
+
+Ok, so then we also developed a single tool that looked to be the most needed for OEMs (publication 4).  
+
+
+\section{Discussion and outlook}
+implications of work and future in the area. 

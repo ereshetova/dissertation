@@ -1,0 +1,17 @@
+OS kernel hardening is big area, lis main vectors, we chose to work on two, explain why these two. 
+
+Outline the common problems in OS kernel hardening: long lifecycle of bugs (even in upstream), lack of fix propagation to all devices, lack of knowledge, need to eliminate bug classes or exploitation methods, etc.
+
+\section{Security of Berkeley Packet Filter}
+
+Having a powerful mechanism embedded into OS kernel is always very attractive for attackers. 
+Linux kernel has such mechanism: in-kernel virtual machine available for unprivileged execution from userspace. 
+Its range of use has only been constantly extending and examples of past attacks and hardening mechanisms exist, especially on JIT part.
+
+We showed that current hardening was not enough and it proved the case for a proper hardening solution to be finally merged into the kernel. Publication 5. 
+
+\section{Kernel memory safety}
+A lot of prior work covers memory safety issues, but no practical solution is used to date inside linux kernel itself (only debugging).
+Present both solutions (publication 6).
+
+
