@@ -4,6 +4,23 @@
 \documentclass[dissertation,math,vertlayout]{aaltoseries}
 \usepackage[utf8]{inputenc}
 
+% TODO: remove
+\usepackage{todonotes}
+
+\usepackage{xspace} % for \setype
+
+\usepackage{hyperref}
+\hypersetup{
+	breaklinks,
+    pdfpagemode={UseOutlines},
+    bookmarksopen,
+    pdfstartview={FitH},
+    colorlinks,
+    linkcolor={blue},
+    citecolor={red},
+    urlcolor={blue}
+}
+
 % Set the document languages
 \usepackage[finnish,english]{babel}
 \usepackage{amsmath,amssymb,amsthm}
@@ -14,6 +31,10 @@
 
 \usepackage{listings}
 \usepackage[indentfirst=false,vskip=3mm]{quoting}
+
+\newcommand{\textbfit}[1]{{\textbf{\textit{#1}}\xspace}}
+\newcommand{\setype}[1]{{\texttt{#1}\xspace}}
+\newcommand{\intel}[0]{Intel{}\xspace}
 
 %\input{dummymathcode/testmathcommand.tex}
 
@@ -27,10 +48,7 @@
 %% The abstract of the dissertation in English
 % Use this command!
 \draftabstract{TBD}
-% Let's add another one in Finnish
-\draftabstract[finnish]{TBD}
-% And yet another one in Swedish
-%\draftabstract[swedish]{\lipsum[7-9]}
+
 
 %% Preface
 % If you write this somewhere else than in Helsinki, use the optional location.

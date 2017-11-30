@@ -1,0 +1,926 @@
+%{AMS}
+ @String{AMSTrans = "American Mathematical Society Translations" }
+ @String{AMSTrans = "Amer. Math. Soc. Transl." }
+ @String{BullAMS = "Bulletin of the American Mathematical Society" }
+ @String{BullAMS = "Bull. Amer. Math. Soc." }
+ @String{ProcAMS = "Proceedings of the American Mathematical Society" }
+ @String{ProcAMS = "Proc. Amer. Math. Soc." }
+ @String{TransAMS = "Transactions of the American Mathematical Society" }
+ @String{TransAMS = "Trans. Amer. Math. Soc." }
+
+ %ACM
+ @String{CACM = "Communications of the {ACM}" }
+ @String{CACM = "Commun. {ACM}" }
+ @String{CompServ = "Comput. Surveys" }
+ @String{JACM = "J. ACM" }
+ @String{ACMMathSoft = "{ACM} Transactions on Mathematical Software" }
+ @String{ACMMathSoft = "{ACM} Trans. Math. Software" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newsletter" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newslett." }
+
+ @String{AmerSocio = "American Journal of Sociology" }
+ @String{AmerStatAssoc = "Journal of the American Statistical Association" }
+ @String{AmerStatAssoc = "J. Amer. Statist. Assoc." }
+ @String{ApplMathComp = "Applied Mathematics and Computation" }
+ @String{ApplMathComp = "Appl. Math. Comput." }
+ @String{AmerMathMonthly = "American Mathematical Monthly" }
+ @String{AmerMathMonthly = "Amer. Math. Monthly" }
+ @String{BIT = "{BIT}" }
+ @String{BritStatPsych = "British Journal of Mathematical and Statistical
+          Psychology" }
+ @String{BritStatPsych = "Brit. J. Math. Statist. Psych." }
+ @String{CanMathBull = "Canadian Mathematical Bulletin" }
+ @String{CanMathBull = "Canad. Math. Bull." }
+ @String{CompApplMath = "Journal of Computational and Applied Mathematics" }
+ @String{CompApplMath = "J. Comput. Appl. Math." }
+ @String{CompPhys = "Journal of Computational Physics" }
+ @String{CompPhys = "J. Comput. Phys." }
+ @String{CompStruct = "Computers and Structures" }
+ @String{CompStruct = "Comput. \& Structures" }
+ @String{CompJour = "The Computer Journal" }
+ @String{CompJour = "Comput. J." }
+ @String{CompSysSci = "Journal of Computer and System Sciences" }
+ @String{CompSysSci = "J. Comput. System Sci." }
+ @String{Computing = "Computing" }
+ @String{ContempMath = "Contemporary Mathematics" }
+ @String{ContempMath = "Contemp. Math." }
+ @String{Crelle = "Crelle's Journal" }
+ @String{GiornaleMath = "Giornale di Mathematiche" }
+ @String{GiornaleMath = "Giorn. Mat." } % didn't find in AMS MR., ibid.
+
+ %IEEE
+ @String{Computer = "{IEEE} Computer" }
+ @String{IEEETransComp = "{IEEE} Transactions on Computers" }
+ @String{IEEETransComp = "{IEEE} Trans. Comput." }
+ @String{IEEETransAC = "{IEEE} Transactions on Automatic Control" }
+ @String{IEEETransAC = "{IEEE} Trans. Automat. Control" }
+ @String{IEEESpec = "{IEEE} Spectrum" } % didn't find in AMS MR
+ @String{ProcIEEE = "Proceedings of the {IEEE}" }
+ @String{ProcIEEE = "Proc. {IEEE}" } % didn't find in AMS MR
+ @String{IEEETransAeroElec = "{IEEE} Transactions on Aerospace and Electronic
+     Systems" }
+ @String{IEEETransAeroElec = "{IEEE} Trans. Aerospace Electron. Systems" }
+
+ @String{IMANumerAna = "{IMA} Journal of Numerical Analysis" }
+ @String{IMANumerAna = "{IMA} J. Numer. Anal." }
+ @String{InfProcLet = "Information Processing Letters" }
+ @String{InfProcLet = "Inform. Process. Lett." }
+ @String{InstMathApp = "Journal of the Institute of Mathematics and
+     its Applications" }
+ @String{InstMathApp = "J. Inst. Math. Appl." }
+ @String{IntControl = "International Journal of Control" }
+ @String{IntControl = "Internat. J. Control" }
+ @String{IntNumerEng = "International Journal for Numerical Methods in
+     Engineering" }
+ @String{IntNumerEng = "Internat. J. Numer. Methods Engrg." }
+ @String{IntSuper = "International Journal of Supercomputing Applications" }
+ @String{IntSuper = "Internat. J. Supercomputing Applic." } % didn't find
+%% in AMS MR
+ @String{Kibernetika = "Kibernetika" }
+ @String{JResNatBurStand = "Journal of Research of the National Bureau
+     of Standards" }
+ @String{JResNatBurStand = "J. Res. Nat. Bur. Standards" }
+ @String{LinAlgApp = "Linear Algebra and its Applications" }
+ @String{LinAlgApp = "Linear Algebra Appl." }
+ @String{MathAnaAppl = "Journal of Mathematical Analysis and Applications" }
+ @String{MathAnaAppl = "J. Math. Anal. Appl." }
+ @String{MathAnnalen = "Mathematische Annalen" }
+ @String{MathAnnalen = "Math. Ann." }
+ @String{MathPhys = "Journal of Mathematical Physics" }
+ @String{MathPhys = "J. Math. Phys." }
+ @String{MathComp = "Mathematics of Computation" }
+ @String{MathComp = "Math. Comp." }
+ @String{MathScand = "Mathematica Scandinavica" }
+ @String{MathScand = "Math. Scand." }
+ @String{TablesAidsComp = "Mathematical Tables and Other Aids to Computation" }
+ @String{TablesAidsComp = "Math. Tables Aids Comput." }
+ @String{NumerMath = "Numerische Mathematik" }
+ @String{NumerMath = "Numer. Math." }
+ @String{PacificMath = "Pacific Journal of Mathematics" }
+ @String{PacificMath = "Pacific J. Math." }
+ @String{ParDistComp = "Journal of Parallel and Distributed Computing" }
+ @String{ParDistComp = "J. Parallel and Distrib. Comput." } % didn't find
+%% in AMS MR
+ @String{ParComputing = "Parallel Computing" }
+ @String{ParComputing = "Parallel Comput." }
+ @String{PhilMag = "Philosophical Magazine" }
+ @String{PhilMag = "Philos. Mag." }
+ @String{ProcNAS = "Proceedings of the National Academy of Sciences
+                    of the USA" }
+ @String{ProcNAS = "Proc. Nat. Acad. Sci. U. S. A." }
+ @String{Psychometrika = "Psychometrika" }
+ @String{QuartMath = "Quarterly Journal of Mathematics, Oxford, Series (2)" }
+ @String{QuartMath = "Quart. J. Math. Oxford Ser. (2)" }
+ @String{QuartApplMath = "Quarterly of Applied Mathematics" }
+ @String{QuartApplMath = "Quart. Appl. Math." }
+ @String{RevueInstStat = "Review of the International Statisical Institute" }
+ @String{RevueInstStat = "Rev. Inst. Internat. Statist." }
+
+ %SIAM
+ @String{JSIAM = "Journal of the Society for Industrial and Applied
+     Mathematics" }
+ @String{JSIAM = "J. Soc. Indust. Appl. Math." }
+ @String{JSIAMB = "Journal of the Society for Industrial and Applied
+     Mathematics, Series B, Numerical Analysis" }
+ @String{JSIAMB = "J. Soc. Indust. Appl. Math. Ser. B Numer. Anal." }
+ @String{SIAMAlgMeth = "{SIAM} Journal on Algebraic and Discrete Methods" }
+ @String{SIAMAlgMeth = "{SIAM} J. Algebraic Discrete Methods" }
+ @String{SIAMAppMath = "{SIAM} Journal on Applied Mathematics" }
+ @String{SIAMAppMath = "{SIAM} J. Appl. Math." }
+ @String{SIAMComp = "{SIAM} Journal on Computing" }
+ @String{SIAMComp = "{SIAM} J. Comput." }
+ @String{SIAMMatrix = "{SIAM} Journal on Matrix Analysis and Applications" }
+ @String{SIAMMatrix = "{SIAM} J. Matrix Anal. Appl." }
+ @String{SIAMNumAnal = "{SIAM} Journal on Numerical Analysis" }
+ @String{SIAMNumAnal = "{SIAM} J. Numer. Anal." }
+ @String{SIAMReview = "{SIAM} Review" }
+ @String{SIAMReview = "{SIAM} Rev." }
+ @String{SIAMSciStat = "{SIAM} Journal on Scientific and Statistical
+     Computing" }
+ @String{SIAMSciStat = "{SIAM} J. Sci. Statist. Comput." }
+
+ @String{SoftPracExp = "Software Practice and Experience" }
+ @String{SoftPracExp = "Software Prac. Experience" } % didn't find in AMS MR
+ @String{StatScience = "Statistical Science" }
+ @String{StatScience = "Statist. Sci." }
+ @String{Techno = "Technometrics" }
+ @String{USSRCompMathPhys = "{USSR} Computational Mathematics and Mathematical
+     Physics" }
+ @String{USSRCompMathPhys = "{U. S. S. R.} Comput. Math. and Math. Phys." }
+ @String{VLSICompSys = "Journal of {VLSI} and Computer Systems" }
+ @String{VLSICompSys = "J. {VLSI} Comput. Syst." }
+ @String{ZAngewMathMech = "Zeitschrift fur Angewandte Mathematik und
+     Mechanik" }
+ @String{ZAngewMathMech = "Z. Angew. Math. Mech." }
+ @String{ZAngewMathPhys = "Zeitschrift fur Angewandte Mathematik und Physik" }
+ @String{ZAngewMathPhys = "Z. Angew. Math. Phys." }
+
+% Publishers % ================================================= |
+
+ @String{Academic = "Academic Press" }
+ @String{ACMPress = "{ACM} Press" }
+ @String{AdamHilger = "Adam Hilger" }
+ @String{AddisonWesley = "Addison-Wesley" }
+ @String{AllynBacon = "Allyn and Bacon" }
+ @String{AMS = "American Mathematical Society" }
+ @String{Birkhauser = "Birkha{\"u}ser" }
+ @String{CambridgePress = "Cambridge University Press" }
+ @String{Chelsea = "Chelsea" }
+ @String{ClaredonPress = "Claredon Press" }
+ @String{DoverPub = "Dover Publications" }
+ @String{Eyolles = "Eyolles" }
+ @String{HoltRinehartWinston = "Holt, Rinehart and Winston" }
+ @String{Interscience = "Interscience" }
+ @String{JohnsHopkinsPress = "The Johns Hopkins University Press" }
+ @String{JohnWileySons = "John Wiley and Sons" }
+ @String{Macmillan = "Macmillan" }
+ @String{MathWorks = "The Math Works Inc." }
+ @String{McGrawHill = "McGraw-Hill" }
+ @String{NatBurStd = "National Bureau of Standards" }
+ @String{NorthHolland = "North-Holland" }
+ @String{OxfordPress = "Oxford University Press" }  %address Oxford or London?
+ @String{PergamonPress = "Pergamon Press" }
+ @String{PlenumPress = "Plenum Press" }
+ @String{PrenticeHall = "Prentice-Hall" }
+ @String{SIAMPub = "{SIAM} Publications" }
+ @String{Springer = "Springer-Verlag" }
+ @String{TexasPress = "University of Texas Press" }
+ @String{VanNostrand = "Van Nostrand" }
+ @String{WHFreeman = "W. H. Freeman and Co." }
+
+%Entries
+
+@inproceedings{chen2011linux,
+  title={Linux kernel vulnerabilities: State-of-the-art defenses and open problems},
+  author={Chen, Haogang and Mao, Yandong and Wang, Xi and Zhou, Dong and Zeldovich, Nickolai and Kaashoek, M Frans},
+  booktitle={Proceedings of the Second Asia-Pacific Workshop on Systems},
+  pages={5},
+  year={2011},
+  organization={ACM}
+}
+
+@inproceedings{van2012memory,
+  title={Memory errors: the past, the present, and the future},
+  author={Van der Veen, Victor and Cavallaro, Lorenzo and Bos, Herbert and others},
+  booktitle={International Workshop on Recent Advances in Intrusion Detection},
+  pages={86--106},
+  year={2012},
+  organization={Springer}
+}
+
+@inproceedings{nagarakatte2015everything,
+  title={Everything you want to know about pointer-based checking},
+  author={Nagarakatte, Santosh and Martin, Milo MK and Zdancewic, Steve},
+  booktitle={LIPIcs-Leibniz International Proceedings in Informatics},
+  volume={32},
+  year={2015},
+  organization={Schloss Dagstuhl-Leibniz-Zentrum fuer Informatik}
+}
+
+@inproceedings{akritidis2009baggy,
+  title={Baggy Bounds Checking: An Efficient and Backwards-Compatible Defense against Out-of-Bounds Errors.},
+  author={Akritidis, Periklis and Costa, Manuel and Castro, Miguel and Hand, Steven},
+  booktitle={USENIX Security Symposium},
+  pages={51--66},
+  year={2009}
+}
+
+@misc{patchRefTarget,
+	title={{LKML --- target: Fix kref->refcount underflow in transport\_cmd\_finish\_abort}},
+	author={Nicholas Bellinger},
+	url={https://lkml.org/lkml/2017/6/27/409},
+	urldate={2017-08-10},
+	year={2017}
+}
+
+@misc{patchRefReset,
+	title = {{LKML --- reset: use kref for reference counting}},
+	author = {Zabel, Philipp},
+	url = {https://lkml.org/lkml/2017/6/1/762},
+	urldate = {2017-08-10},
+	year = {2017}
+}
+
+@misc{refcountCpuCycles,
+	title = { Re: [PATCH 07/17] net: convert sock.sk\_refcnt from atomic\_t to refcount\_t},
+	author = {Zijlstra, Peter},
+	url = {https://lwn.net/Articles/718280/},
+	urldate = {2017-08-10},
+	year = {2017}
+}
+
+@misc{patchReSocket,
+	title={{LKML --- socket, bpf: fix sk\_filter use after free in sk\_clone\_lock}},
+	author={Daniel Borkmann},
+	url={https://lkml.org/lkml/2017/3/28/383},
+	urldate={2017-08-10},
+	year={2017}
+}
+
+
+@misc{team2003pax,
+	title={PaX non-executable pages design \& implementation},
+	author={{PaX Team}},
+	url = {http://pax.grsecurity.net},
+	urldate = {2017-08-10},
+	year={2003}
+}
+
+@misc{grsecurity,
+	key={Grsecurity},
+	title={{grsecurity}},
+	howpublished = "\url{https://grsecurity.net}",
+	urldate = {2017-09-21},
+	year = {2017},
+}
+
+@misc{grsecOnRefcount,
+	author = {Branco, Rodrigo},
+	institution = {Grsecurity},
+	title = {{Grsecurity forum --- Guest Blog by Rodrigo Branco: PAX{\_}REFCOUNT
+	  Documentation}},
+	url = {https://forums.grsecurity.net/viewtopic.php?f=7&t=4173},
+	urldate = {2017-05-31},
+	year = {2015}
+}
+
+@misc{mailingRefcountApi,
+	title = {Conversion from atomic\_t to refcount\_t: summary of issues},
+	author = {Elena Reshetova},
+	url = {http://www.openwall.com/lists/kernel-hardening/2016/11/28/4},
+	year = {2017}
+}
+
+@misc{cookSec413,
+	title = {{codeblog: security things in Linux v4.13}},
+	author = {Cook, Kees},
+	url = {https://outflux.net/blog/archives/2017/09/05/security-things-in-linux-v4-13/},
+	year = {2017},
+}
+
+@inproceedings{xu2003transparent,
+  title={Transparent runtime randomization for security},
+  author={Xu, Jun and Kalbarczyk, Zbigniew and Iyer, Ravishankar K},
+  booktitle={Reliable Distributed Systems, 2003. Proceedings. 22nd International Symposium on},
+  pages={260--269},
+  year={2003},
+  organization={IEEE}
+}
+
+@misc{aslr2003pax,
+	title={{PaX address space layout randomization (ASLR)}},
+	author={{PaX Team}},
+	url={http://pax.grsecurity.net/docs/aslr.txt},
+	urldate = {2017-08-10},
+	year={2003}
+}
+
+@misc{shield2011stack,
+	title={A stack smashing technique protection tool for Linux},
+	author={StackShield},
+	url={http://www.angelfire.com/sk/stackshield},
+	year={2011}
+}
+
+@article{smalley2001implementing,
+  title={Implementing SELinux as a Linux security module},
+  author={Smalley, Stephen and Vance, Chris and Salamon, Wayne},
+  journal={NAI Labs Report},
+  volume={1},
+  number={43},
+  pages={139},
+  year={2001}
+}
+
+@misc{ima,
+	key={{IMA}},
+	title={{Integrity Measurement Architecture (IMA) wiki pages}},
+	howpublished = {\url{http://sourceforge.net/p/linux-ima/wiki/Home/}},
+	year={2017}
+}
+
+@misc{dm-verity,
+	key={dm-verify},
+  title={{dm-verity project pages}},
+	howpublished = {\url{http://source.android.com/security/verifiedboot/dm-verity}},
+	year={2017}
+}
+
+@misc{kspp,
+	key={{KSPP}},
+	title={{Kernel Self Protection Project wiki}},
+	howpublished = {\url{http://www.kernsec.org/wiki/index.php/Kernel\_Self\_Protection\_Project}},
+	year={2017}
+}
+
+@misc{coccinelle,
+	key={Coccinelle},
+	title={{Coccinelle Project}},
+	howpublished = {\url{http://coccinelle.lip6.fr/}},
+	year={2017}
+}
+
+@misc{netperf,
+	key={{Netperf}},
+	title={{Netperf Project}},
+	howpublished = {\url{http://hewlettpackard.github.io/netperf}},
+	year={2017}
+}
+
+
+@article{bauer2006paranoid,
+  title={Paranoid penguin: an introduction to Novell AppArmor},
+  author={Bauer, Mick},
+  journal={Linux Journal},
+  volume={2006},
+  number={148},
+  pages={13},
+  year={2006},
+  publisher={Belltown Media}
+}
+
+
+@inproceedings{cowan1997stackguard,
+  title={Stackguard: automatic adaptive detection and prevention of buffer-overflow attacks.},
+  author={Cowan, Crispan and Pu, Calton and Maier, Dave and Walpole, Jonathan and Bakke, Peat and Beattie, Steve and Grier, Aaron and Wagle, Perry and Zhang, Qian and Hinton, Heather},
+  booktitle={USENIX Security Symposium},
+  volume={98},
+  pages={63--78},
+  year={1998},
+}
+
+@article{krahmer2005x86,
+	abstract = {The x86-64 CPU platform (i.e. AMD64 or Hammer) introduces new features to protect against exploitation of buffer overflows, the so called No Execute (NX) or Advanced Virus Protection (AVP). This non-executable enforcement of data pages and the ELF64 SystemV ABI render common buffer overflow exploitation techniques useless. This paper describes and analyzes the protection mechanisms in depth. Research and target platform was a SUSE Linux 9.3 x86-64 system but the results can be expanded to non-Linux systems as well. search engine tag: SET-krahmer-bccet-2005.},
+	author = {Krahmer, Sebastian},
+	url = {https://trailofbits.github.io/ctf/exploits/references/no-nx.pdf},
+	urldate = {2017-08-10},
+	pages = {1--20},
+	title = {{X86-64 Buffer Overflow Exploits and the Borrowed Code Chunks Exploitation Technique}},
+	year = {2005}
+}
+
+
+@misc{designer1997linux,
+  title={Linux kernel patch to remove stack exec permission},
+  author={{Solar Designer}},
+	url = {http://seclists.org/bugtraq/1997/Apr/31},
+  year={1997}
+}
+
+@article{nagarakatte2009softbound,
+  title={SoftBound: Highly compatible and complete spatial memory safety for C},
+  author={Nagarakatte, Santosh and Zhao, Jianzhou and Martin, Milo MK and Zdancewic, Steve},
+  booktitle = {Proceedings of the 30th ACM SIGPLAN Conference on Programming Language Design and Implementation},
+  volume={44},
+  number={6},
+  pages={245--258},
+  year={2009},
+}
+
+@inproceedings{kwon2013low,
+  title={Low-fat pointers: compact encoding and efficient gate-level implementation of fat pointers for spatial safety and capability-based security},
+  author={Kwon, Albert and Dhawan, Udit and Smith, Jonathan M and Knight Jr, Thomas F and DeHon, Andre},
+  booktitle={Proceedings of the 2013 ACM SIGSAC conference on Computer \& communications security},
+  pages={721--732},
+  year={2013},
+  organization={ACM}
+}
+
+@inproceedings{nethercote2007valgrind,
+  title={Valgrind: a framework for heavyweight dynamic binary instrumentation},
+  author={Nethercote, Nicholas and Seward, Julian},
+  booktitle = {Proceedings of the 28th ACM SIGPLAN Conference on Programming Language Design and Implementation},
+  volume={42},
+  number={6},
+  pages={89--100},
+  year={2007},
+  organization={ACM}
+}
+
+@inproceedings{yong2003protecting,
+  title={Protecting C programs from attacks via invalid pointer dereferences},
+  author={Yong, Suan Hsi and Horwitz, Susan},
+  booktitle={ACM SIGSOFT Software Engineering Notes},
+  volume={28},
+  number={5},
+  pages={307--316},
+  year={2003},
+  organization={ACM}
+}
+
+@article{Kroah-Hartman2004,
+	author = {Kroah-Hartman, G},
+	journal = {Linux Symposium},
+	keywords = {linux-kernel,refcounts},
+	pages = {295},
+	title = {{Kobjects and Krefs}},
+	url = {https://landley.net/kdocs/mirror/ols2004v2.pd},
+	year = {2004}
+}
+
+@misc{nistCves,
+	author={{National Vulnerability Database}},
+	title={{NVD: Statistics}},
+	url={https://nvd.nist.gov/vuln/search/statistics?adv_search=true&form_type=advanced&results_type=statistics&query=kernel},
+	urldate={2017-08-18},
+	year={2017}
+}
+
+@article{Collins1960,
+	author = {Collins, George E.},
+	doi = {10.1145/367487.367501},
+	journal = {Communications of the ACM},
+	keywords = {refcounts},
+	number = {12},
+	pages = {655--657},
+	title = {{A Method for Overlapping and Erasure of Lists}},
+	url = {http://dl.acm.org/citation.cfm?doid=367487.367501},
+	volume = {3},
+	year = {1960}
+}
+
+@techreport{mckenney2007overview,
+	title={Overview of linux-kernel reference counting},
+	author={McKenney, Paul E},
+	year={2007},
+	url={http://www.open-std.org/JTC1/sc22/wg21/docs/papers/2007/n2167.pdf},
+	institution={Linux Technology Center, IBM Beaverton},
+	type={Tech. Rep. N2167=07-0027}
+}
+
+@misc{ramakesavan2015intel,
+	title={{Intel Memory Protection Extensions (Intel MPX) enabling guide}},
+	author={Ramakesavan, Ramu and Zimmerman, Dan and Singaravelu, Pavithra},
+	year={2015},
+	url={http://pdfs.semanticscholar.org/bd11/4878c6471cb5ae28546a594bf25ba5c25c6f.pdf},
+}
+
+@inproceedings{kuvaiskii2017sgxbounds,
+  title={SGXBOUNDS: Memory Safety for Shielded Execution},
+  author={Kuvaiskii, Dmitrii and Oleksenko, Oleksii and Arnautov, Sergei and Trach, Bohdan and Bhatotia, Pramod and Felber, Pascal and Fetzer, Christof},
+  booktitle={Proceedings of the 2017 ACM European Conference on Computer Systems (EuroSys)},
+  year={2017}
+}
+
+@inproceedings{kuznetsov2014code,
+  title={Code-Pointer Integrity.},
+  author={Kuznetsov, Volodymyr and Szekeres, L{\'a}szl{\'o} and Payer, Mathias and Candea, George and Sekar, R and Song, Dawn},
+  booktitle={OSDI},
+  volume={14},
+  pages={00000},
+  year={2014}
+}
+
+@inproceedings{devietti2008hardbound,
+  title={Hardbound: architectural support for spatial safety of the C programming language},
+  author={Devietti, Joe and Blundell, Colin and Martin, Milo MK and Zdancewic, Steve},
+  booktitle={ACM SIGARCH Computer Architecture News},
+  volume={36},
+  number={1},
+  pages={103--114},
+  year={2008},
+  organization={ACM}
+}
+
+@inproceedings{xu2015collision,
+  title={From collision to exploitation: Unleashing use-after-free vulnerabilities in linux kernel},
+  author={Xu, Wen and Li, Juanru and Shu, Junliang and Yang, Wenbo and Xie, Tianyi and Zhang, Yuanyuan and Gu, Dawu},
+  booktitle={Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security},
+  pages={414--425},
+  year={2015},
+  organization={ACM}
+}
+
+
+@article{raheja2016analysis,
+  title={Analysis of Linux Kernel Vulnerabilities},
+  author={Raheja, Supriya and Munjal, Geetika and others},
+  journal={Indian Journal of Science and Technology},
+  volume={9},
+  number={48},
+  year={2016}
+}
+
+@article{nikolenko2016,
+	title={{Exploiting COF Vulnerabilities in the Linux kernel}},
+  author={Nikolenko, Vitaly},
+	journal={\url{ruxcon.org.au/assets/2016/slides/ruxcon2016-Vitaly.pdf}},
+	year={2016}
+}
+
+
+@misc{Rigo,
+	author = {Rigo, Sandro and Polychronakis, Michalis and Kemerlis, Vasileios P},
+	title = {{DROP THE ROP Fine-grained Control-flow Integrity for the Linux Kernel}},
+	year = {2017},
+}
+
+%	howpublished ={\url{https://www.blackhat.com/docs/asia-17/materials/asia-17-Moreira-Drop-The-Rop-Fine-Grained-Control-Flow-Integrity-For-The-Linux-Kernel-wp.pdf}},
+
+@inproceedings{kenali,
+	title        = {{Enforcing Kernel Security Invariants with Data Flow Integrity}},
+	author       = {Chengyu Song and Byoungyoung Lee and Kangjie Lu and William R. Harris and Taesoo Kim and Wenke Lee},
+	booktitle    = {Proceedings of the 2016 Annual Network and Distributed System Security Symposium (NDSS)},
+	month        = feb,
+	year         = 2016,
+	address      = {San Diego, CA},
+}
+
+@article{cooklss2016,
+	title={{Status of the Kernel Self Protection Project}},
+  author={Cook, Kees},
+	journal={\url{www.outflux.net/slides/2016/lss/kspp.pdf}},
+	year={2016}
+}
+
+@misc{kasan,
+	key={{KASAN}},
+	title={{The Kernel Address Sanitizer (KASAN)}},
+	howpublished = {\url{www.kernel.org/doc/html/v4.10/dev-tools/kasan.html}},
+	year={2017}
+}
+
+@misc{kernelPatchDocs,
+	key={{Linux Kernel Documentation}},
+	title={{Submitting patches: the essential guide to getting your code into the kernel}},
+	howpublished="\url{https://www.kernel.org/doc/html/v4.12/process/submitting-patches.html}",
+	year={2017},
+}
+
+@inproceedings{serebryany2012addresssanitizer,
+  title={AddressSanitizer: A Fast Address Sanity Checker.},
+  author={Serebryany, Konstantin and Bruening, Derek and Potapenko, Alexander and Vyukov, Dmitriy},
+  booktitle={USENIX Annual Technical Conference},
+  pages={309--318},
+  year={2012}
+}
+
+
+
+
+@article{coccinelletalk,
+	title={{Inside the Mind of a Coccinelle Developer}},
+	author={Lawall, Julia},
+	howpublished = {\url{http://events.linuxfoundation.org/sites/events/files/slides/lss16.pdf}},
+	year={2016}
+}
+
+
+@article{grossman2005cyclone,
+  title={Cyclone: A type-safe dialect of C},
+  author={Grossman, Dan and Hicks, Michael and Jim, Trevor and Morrisett, Greg},
+  journal={C/C++ Users Journal},
+  volume={23},
+  number={1},
+  pages={112--139},
+  year={2005}
+}
+
+@inproceedings{necula2002ccured,
+  title={CCured: Type-safe retrofitting of legacy code},
+  author={Necula, George C and McPeak, Scott and Weimer, Westley},
+  booktitle={ACM SIGPLAN Notices},
+  volume={37},
+  number={1},
+  pages={128--139},
+  year={2002},
+  organization={ACM}
+}
+
+@article{xu2004efficient,
+	abstract = {Memory-related errors, such as buffer overflows and dangling pointers, remain one of the principal reasons for failures of C programs. As a result, a number of recent research efforts have focused on the problem of dynamic detection of memory errors in C programs. However, existing approaches suffer from one or more of the following problems: inability to detect all memory errors (e.g., Purify), requiring non-trivial modifications to existing C programs (e.g., Cyclone), changing the memory management model of C to use garbage collection (e.g., CCured), and excessive performance overheads. In this paper, we present a new approach that addresses these problems. Our approach operates via source code transformation and combines efficient data-structures with simple, localized optimizations to obtain good performance. },
+	author = {Xu, Wei and DuVarney, Daniel C and Sekar, R},
+	doi = {10.1145/1041685.1029913},
+	isbn = {1-58113-855-5},
+	issn = {0163-5948},
+	journal = {SIGSOFT Softw. Eng. Notes},
+	keywords = {C,memory safety,program transformation},
+	number = {6},
+	pages = {117--126},
+	title = {{An Efficient and Backwards-compatible Transformation to Ensure Memory Safety of C Programs}},
+	url = {http://doi.acm.org/10.1145/1041685.1029913},
+	volume = {29},
+	year = {2004}
+}
+
+@article{austin1994efficient,
+	abstract = {We present a pointer and array access checking technique that provides complete error coverage through a simple set of program transformations. Our technique, based on an extended safe pointer representation, has a number of novel aspects. Foremost, it is the first technique that detects all spatial and temporal access errors. Its use is not limited by the expressiveness of the language; that is, it can be applied successfully to compiled or interpreted languages with subscripted and mutable pointers, local references, and explicit and typeless dynamic storage management, e.g., C. Because it is a source level transformation, it is amenable to both compile- and run-time optimization. Finally, its performance, even without compile-time optimization, is quite good. We implemented a prototype translator for the C language and analyzed the checking overheads of six non-trivial, pointer intensive programs. Execution overheads range from 130{\%} to 540{\%}; with text and data size overheads typically below 100{\%}.},
+	author = {Austin, Todd M. and Breach, Scott E. and Sohi, Gurindar S. and Austin, Todd M. and Breach, Scott E. and Sohi, Gurindar S.},
+	doi = {10.1145/178243.178446},
+	isbn = {089791662X},
+	issn = {03621340},
+	journal = {Proceedings of the ACM SIGPLAN 1994 conference on Programming language design and implementation  - PLDI '94},
+	number = {6},
+	pages = {290--301},
+	title = {{Efficient detection of all pointer and array access errors}},
+	url = {http://portal.acm.org/citation.cfm?doid=178243.178446},
+	volume = {29},
+	year = {1994}
+}
+
+@inproceedings{ratanaworabhan2009nozzle,
+  title={NOZZLE: A Defense Against Heap-spraying Code Injection Attacks.},
+  author={Ratanaworabhan, Paruj and Livshits, V Benjamin and Zorn, Benjamin G},
+  booktitle={USENIX Security Symposium},
+  pages={169--186},
+  year={2009}
+}
+
+@article{patil1997low,
+  title={Low-cost, concurrent checking of pointer and array accesses in C programs},
+  author={Patil, Harish and Fischer, Charles},
+  journal={Softw., Pract. Exper.},
+  volume={27},
+  number={1},
+  pages={87--110},
+  year={1997}
+}
+
+@inproceedings{patil1995efficient,
+  title={Efficient Run-time Monitoring Using Shadow Processing.},
+  author={Patil, Harish and Fischer, Charles N},
+  booktitle={AADEBUG},
+  volume={95},
+  pages={1--14},
+  year={1995}
+}
+
+
+@inproceedings{jones1997backwards,
+  title={Backwards-compatible bounds checking for arrays and pointers in C programs},
+  author={Jones, Richard WM and Kelly, Paul HJ},
+  booktitle={Proceedings of the 3rd International Workshop on Automatic Debugging; 1997 (AADEBUG-97)},
+  number={001},
+  pages={13--26},
+  year={1997},
+  organization={Link{\"o}ping University Electronic Press}
+}
+
+@inproceedings{hastings1991purify,
+    author = {Reed Hastings and Bob Joyce},
+    title = {Purify: Fast detection of memory leaks and access errors},
+    booktitle = {In Proc. of the Winter 1992 USENIX Conference},
+    year = {1991},
+    pages = {125--138}
+}
+
+@article{nethercote2004bounds,
+	abstract = {This paper presents a new technique for performing bounds-checking. We use dynamic binary instrumentation to modify programs at run-time, track pointer bounds information and check all memory accesses. The technique is neither sound nor complete, however it has several very useful characteristics: it works with programs written in any programming language, and it requires no compiler support, no code recompilation, no source code, and no special treatment for libraries. The technique performs best when debug information and symbol tables are present in the compiled program, but degrades gracefully when this information is missing - fewer errors are found, but false positives do not increase. We describe our prototype implementation, and consider how it could be improved by better interaction with a compiler.},
+	author = {Nethercote, Nicholas and Fitzhardinge, Jeremy},
+	journal = {Proceedings of the Second Workshop on Semantics Program Analysis and Computing Environments for Memory Management SPACE 2004},
+	title = {{Bounds-Checking Entire Programs without Recompiling}},
+	url = {http://www.njn.valgrind.org/pubs/bounds-checking2004.ps},
+	year = {2004}
+}
+
+
+@inproceedings{dhurjati2006backwards,
+  title={Backwards-compatible array bounds checking for C with very low overhead},
+  author={Dhurjati, Dinakar and Adve, Vikram},
+  booktitle={Proceedings of the 28th international conference on Software engineering},
+  pages={162--171},
+  year={2006},
+  organization={ACM}
+}
+
+@misc{stoep2016android,
+	title={Android: protecting the kernel},
+	author={Jeff Vander Stoep},
+	url = {events.linuxfoundation.org/sites/events/files/slides/Android-%20protecting%20the%20kernel.pdf},
+	year={2016},
+}
+
+@misc{OE2017,
+	title={OpenEmbedded project},
+	url = {http://www.openembedded.org/wiki/Main_Page},
+	year={2017},
+}
+
+@misc{yocto2017,
+	title={Yocto project},
+	url = {https://www.yoctoproject.org/},
+	year={2017},
+}
+
+
+@article{mcallister2012attacking,
+	title={{Attacking hardened Linux systems with kernel JIT spraying}},
+	author={McAllister, Keegan},
+	journal={\url{mainisusuallyafunction.blogspot.de/2012/11/attacking-hardened-linux-systems-with.html}},
+	year={2012}
+}
+
+@article{blazakis2010,
+	title={{Interpreter Exploitation: Pointer Inference and JIT Spraying}},
+	author={Blazakis, Dion},
+	journal={\url{www.semantiscope.com/research/BHDC2010/BHDC-2010-Paper.pdf}},
+	year={2010}
+}
+
+@inproceedings{homescu2013librando,
+	title={{Librando: transparent code randomization for just-in-time compilers}},
+	author={Homescu, Andrei and Brunthaler, Stefan and Larsen, Per and Franz, Michael},
+	booktitle={CCS},
+	pages={993--1004},
+	year={2013},
+}
+
+@inproceedings{jangda2016libmask,
+	title={{libmask: Protecting Browser JIT Engines from the Devil in the Constants}},
+	author={Jangda, Abhinav and Mishra, Mohit and Baudry, Benoit},
+	booktitle={PST},
+	year={2016}
+}
+
+@inproceedings{athanasakis2015devil,
+	title={{The Devil is in the Constants: Bypassing Defenses in Browser JIT Engines.}},
+	author={Athanasakis, Michalis and others},
+	booktitle={NDSS},
+	year={2015}
+}
+
+@article{intel2016,
+	title={{Intel® 64 and IA-32 Architectures Software Developer’s Manual}},
+	journal={\url{www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-manual-325462.pdf}},
+	year={2016}
+}
+
+
+@article{dep2013,
+	title={{A detailed description of the Data Execution Prevention (DEP) feature}},
+	journal={\url{support.microsoft.com/en-us/kb/875352}},
+	year={2016}
+}
+
+@article{team2003pax,
+	title={{PaX address space layout randomization (ASLR)}},
+	author={PaX~Team},
+	year={2003}
+}
+
+@article{edge2014stack,
+	title={{"Strong" stack protection for GCC}},
+	journal={\url{lwn.net/Articles/584225/}},
+	author={Jake Edge},
+	year={2014}
+}
+
+@inproceedings{chen2011jitdefender,
+	title={{JITDefender: A defense against JIT spraying attacks}},
+	author={Chen, Ping and Fang, Yi and Mao, Bing and Xie, Li},
+	booktitle={IFIP},
+	pages={142--153},
+	year={2011},
+}
+
+@book{gorman2004understanding,
+	title={{Understanding the Linux virtual memory manager}},
+	author={Gorman, Mel},
+	year={2004},
+}
+
+@inproceedings{song2015exploiting,
+	title={{Exploiting and Protecting Dynamic Code Generation}},
+	author={Song, Chengyu and Zhang, Chao and Wang, Tielei and Lee, Wenke and Melski, David},
+	booktitle={NDSS},
+	year={2015}
+}
+
+@inproceedings{jang2016breaking,
+	title={{Breaking Kernel Address Space Layout Randomization with Intel TSX}},
+	author={Jang, Yeongjin and Lee, Sangho and Ki, Taesoo},
+	booktitle={CCS},
+	pages={380--392},
+	year={2016},
+}
+
+@inproceedings{mccanne1993bsd,
+	title={{The BSD Packet Filter: A New Architecture for User-level Packet Capture}},
+	author={McCanne, Steven and Jacobson, Van},
+	booktitle={USENIX winter},
+	volume={46},
+	year={1993}
+}
+
+@book{mogul1990efficient,
+	title={{Efficient use of workstations for passive monitoring of local area networks}},
+	author={Mogul, J},
+	volume={20},
+	number={4},
+	year={1990},
+	publisher={ACM}
+}
+
+@book{mogul1987packer,
+	title={{The packer filter: an efficient mechanism for user-level network code}},
+	author={Mogul, Jeffrey and Rashid, Richard and Accetta, Michael},
+	volume={21},
+	number={5},
+	year={1987},
+	publisher={ACM}
+}
+
+
+@article{borkmann2016,
+	title={{On getting tc classifier fully programmable with cls\_bpf}},
+	author={Borkmann, Daniel},
+	journal={\url{www.netdevconf.org/1.1/proceedings/papers/On-getting-tc-classifier-fully-programmable-with-cls-bpf.pdf}},
+	year={2016}
+}
+
+
+@article{kernelfilter2016,
+	title={{Linux Socket Filtering aka Berkeley Packet Filter (BPF)}},
+	author={Schulist, Jay and others},
+	journal={\url{www.kernel.org/doc/Documentation/networking/filter.txt}},
+	year={2016}
+}
+
+@article{seccomp2016,
+	title={{SECure COMPuting with filters}},
+	journal={\url{www.kernel.org/doc/Documentation/prctl/seccomp\_filter.txt}},
+	year={2016}
+}
+
+@article{starovoitov2015,
+	title={{Tracing: attach eBPF programs to kprobes}},
+	author={Starovoitov, Alexei},
+	journal={\url{lwn.net/Articles/636976/}},
+	year={2015}
+}
+
+@article{corbet2015,
+	title={{The kernel connection multiplexer}},
+	author={Corbet, Jonathan},
+	journal={\url{lwn.net/Articles/657999/}},
+	year={2015}
+}
+
+@article{corbet2012,
+	title={{A JIT for packet filters}},
+	author={Corbet, Jonathan},
+	journal={\url{lwn.net/Articles/437981/}},
+	year={2012}
+}
+
+@article{cook2016,
+	title={{Status of the Kernel Self Protection Project}},
+	author={Cook, Case},
+	journal={\url{outflux.net/slides/2016/lss/kspp.pdf}},
+	year={2016}
+}
+
+@article{bania2010jit,
+	title={{JIT spraying and mitigations}},
+	author={Bania, Piotr},
+	journal={arXiv preprint arXiv:1009.1038},
+	year={2010}
+}
+
+@misc{landlock2016,
+	title={Landlock LSM},
+	author={Mickaël Salaün},
+	url = {https://lwn.net/Articles/698226/},
+	year={2016},
+}
+

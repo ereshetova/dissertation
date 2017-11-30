@@ -1,17 +1,92 @@
-OS kernel hardening is big area, lis main vectors, we chose to work on two, explain why these two. 
+It is easy to see that a central piece of any platform security architecture is the security of OS kernel: any breach in this area almost always leads to the compromise of the whole system, especially if no security HW support is present. This makes the OS kernel a very attractive target and many recent studies show that adversaries are more and more focusing their efforts on kernel-level attacks~\cite{stoep2016android}.\todo[inline]{put more references} This is especially true given that many popular mobile and embedded OSes spent considerable effort in tightening the security of their userspace applications and processes~\cite{stoep2016android}.\todo[inline]{put more references} For example, it used to be pretty common that many userspace daemons run with superuser privileges all the time making it very easy for attackers to obtain these privileges straight after compromising a single userspace process. On contrary nowadays the privileges of each userspace application or daemon is minimized, and higher privileges are quite commonly even limited to the system or daemon startup time: after the initialization phase is finished, unnecessary privileges are dropped and cannot be misused by an attacker if later on the process gets compromised. Another common improvement is compartmentalization and isolation of the most vulnerable application parts, such as parsers and renderers, into separate sandboxed processes further reducing attacker's opportunities. As a result of these efforts modern successful attacks on userspace applications are very complex and require chaining of multiple vulnerabilities in order to reach the desired result. In contrast a single vulnerability directly in the OS kernel provides an attacker with superuser privileges straight.
 
-Outline the common problems in OS kernel hardening: long lifecycle of bugs (even in upstream), lack of fix propagation to all devices, lack of knowledge, need to eliminate bug classes or exploitation methods, etc.
+This thesis focuses on the specific OS kernel, namely the Linux kernel, due to its widespread adoption for mobile and embedded devices: more than 2 billion mobile devices are currently running Android OS powered by the Linux kernel, many embedded manufacturers build their OSes based on Open Embedded/Yocto~\cite{OE2017, yocto2017} projects with the Linux kernel being at its base etc. 
+In addition the Linux kernel is developed fully in the open and any person is able to propose ideas or contribute the code to the mainline (of course given that the Linux kernel maintainers agree with the approach).
 
-\section{Security of Berkeley Packet Filter}
+Past studies~\cite{stoep2016android, cooklss2016} show that the Linux kernel vulnerabilities have a remarkably long life time. It takes on average five years between the time when a vulnerability is introduced into the kernel source code and the time it is fixed. Moreover even after it is finally fixed in the mainline Linux kernel, it is very difficult to estimate when the fix is delivered to the end devices: it might take anything between a number of days to a number of years. In addition some older embedded or mobile devices might actually never see these updates, making them a perfect attack target. The time window between the public announcement of kernel vulnerability and its fix (usually pretty fast) in the mainline kernel and the time the fix is propagated to most of the devices is the moment of golden opportunity for many attackers: all the details about the vulnerability is known and sometimes even proof of the concept exploit can be obtained.
 
-Having a powerful mechanism embedded into OS kernel is always very attractive for attackers. 
-Linux kernel has such mechanism: in-kernel virtual machine available for unprivileged execution from userspace. 
-Its range of use has only been constantly extending and examples of past attacks and hardening mechanisms exist, especially on JIT part.
+As adversaries have been turning towards attacking the Linux kernel itself, security architects, researchers and engineers have been exploring various methods for its better protection. A lot of the effort has been put into improving the overall testing suites for the Linux kernel, various static and dynamic code checkers are also used regularly and automated. New tools, including better commit verification scripts are being developed to assist developers, better code review practices are established etc. However, it is unrealistic to assume that it would ever be possible to have all the bugs in the source code found and fixed even in the well-maintained mainline Linux kernel. The situation is even much worse for drivers and other non-mainline code developed by OEMs~\cite{stoep2016android}. Such code might get a very limited code review, little testing and be written under harsh time-to-market requirements making it a good place for introducing bugs and vulnerabilities.
 
-We showed that current hardening was not enough and it proved the case for a proper hardening solution to be finally merged into the kernel. Publication 5. 
+An alternative approach that defenders can take is to consider how modern kernel exploits are written and try to eliminate the methods, steps, targets, and anything that helps exploit writers to succeed, including things like information leaks. This is exactly the path that the Kernel Self Protection Project (KSPP)~\cite{kspp} has taken. KSPP is an open community of developers and security experts that aims to develop new or adapt existing kernel hardening measures for the mainline Linux kernel. It looks into a wide range of bug classes (such as stack, heap, buffer or integers overflows, use-after-frees etc.) and exploit prevention techniques (such as hiding addresses of kernel pointers, preventing return oriented programming (ROP) and jump oriented programming (JOP) etc.) and attempts to develop respective measures.
+
+\todo[inline]{Do we need here an extensive overview of all areas that KSPP is working on? It might not be the full list of all possible hardening targets, and it is changing all the time (more areas gets added as we discover smth new), but it provides some list.}          
+
+Within the KSPP project this thesis has looked into two important areas of kernel hardening: security of Berkeley Packet Filter (BPF) Just-In-Time (JIT) compiler and kernel memory safety overall. While these two areas definitely do not cover all the hardening aspects of the Linux kernel, they are important parts of the overall kernel security. The Berkeley Packet Filter JIT compiler is an important, widely used and very powerful component of the Linux kernel making it a very valuable target for the attackers. Similarly an ability to prevent kernel memory errors, such as use-after-frees or buffer overflows, can greatly affect the overall security of the Linux kernel and help eliminating many past and future vulnerabilities. The below subsections explain each aspect in more details as well as contribution done by this thesis.  
+
+\section{Security of Berkeley Packet Filter Just-In-Time compiler}
+\label{sec:bpf-jit-attack}
+
+Having a OS kernel mechanism with an ability to execute userspace-supplied code is always very attractive for attackers. 
+The mainline Linux kernel has such mechanism: the Berkeley Packet Filter~\cite{kernelfilter2016} and associated Just-In-Time (JIT) compiler, that is basically an in-kernel virtual machine available for unprivileged execution from the userspace. Historically this mechanism was introduced to speed up the packet filtering on networking sockets, but nowadays it is also used in a wide range of non-networking applications, including trace points~\cite{starovoitov2015}, syscalls filtering in seccomp~\cite{seccomp2016}, Kernel Connection Multiplexer (KCM)~\cite{corbet2015} etc. There is even a proposal to use BPF for creating a user-programmable Linux Security Module, Landlock~\cite{landlock2016}, that considerably widens the set of BPF use cases.
+
+\begin{figure}[t]
+	\centering
+		\includegraphics[width=0.80\textwidth]{figures/bpf-overview.png}
+	\caption{Linux kernel Berkeley Packet Filter and JIT compiler (From Publication V)}
+	\label{fig:bpf-overview}
+\end{figure}
+
+The overall flow of how a BPF program is processed by the kernel is shown is shown in figure~\ref{fig:bpf-overview}.  
+A userspace process expresses its packet filtering algorithm in a form of a BPF program that it wants to attach to a socket. A BPF program is written in the BPF interpreter language that can be executed by BPF in the kernel. When a BPF program is loaded to the kernel, it is first verified by a BPF Verifier component that attempts to check the correctness of supplied program. If the check passes, then the program is attached to the socket and will be executed every time the packet is received for that socket. However, in order to further speed up the filtering, the BPF program can be given to the JIT compiler that translates it to the native machine assembly language. 
+
+The above flow can be abused to load the attacker-supplied payload into the kernel memory using an attack technique called \textit{JIT spraying}~\cite{blazakis2010, bania2010jit}. The original proof of concept exploit was done back in 2012~\cite{mcallister2012attacking} and showed that BPF JIT compiler design and implementation are very vulnerable to such attacks. As a result a protective measure was merged in the mainline kernel that attempted to randomize the memory location where the BPF program gets loaded and therefore making it really hard (with a probability of success only about 0.0004\%) for an attacker to find supplied payload. However, the root cause of the problem was not fixed at that time, despite the suggestions from some security experts\footnote{The Grsecurity kernel security project \url{grsecurity.net}} 
+
+The publication V of this thesis dives deeply in the security issues of the BPF JIT compiler and builds a number of successful attacks on the latest at that time available mainline 4.4 Linux kernel despite the security fixes done in the past. It shows that it is possible to achieve 99.6\% attack success rate and therefore proving that much stronger security measures are required for the BPF JIT compiler in order to provide an adequate security against JIT spray attacks. As a result of this work a number of mitigation measures were merged to the mainline kernel that fully eliminated possibility to perform this type of attacks\footnote{\url{git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=4f3446b}}. It is no longer possible to supply the attacker's payload in BPF programs using the constants due to the blinding process (XORing with a random number) done for each of them prior to its placement in the memory.
 
 \section{Kernel memory safety}
-A lot of prior work covers memory safety issues, but no practical solution is used to date inside linux kernel itself (only debugging).
-Present both solutions (publication 6).
+\label{sec:kern-mem-safety}
 
+Memory errors can be very dangerous for the security of OS kernel since they can give an attacker an ability to read or write kernel memory, which is normally inaccessible for a userspace process. The cause of these errors is an absence of inherent memory safety in C, which is the primary implementation language of the Linux kernel. 
+Numerous past CVEs (CVE-2014-2851, CVE-2016-4558, CVE-2016-0728, CVE-2014-0196, CVE-2016-8440, CVE-2016-8459, and CVE-2017-7895) as well as vulnerability studies~\cite{raheja2016analysis, chen2011linux} show that memory errors is a big problem for the Linux kernel and needs addressing in order to be more robust against these attacks.
 
+Typically memory errors are divided into two classes:
+
+\begin{itemize}
+	\item \textbf{Temporal memory errors}. These errors happen when pointers to uninitialized or freed memory are dereferenced. A typical example is a \emph{use-after-free} error when a dereferenced pointer has already been prematurely freed. Another example is a null pointer dereference errors, when an initialized pointer is attempt to being dereferenced. 
+	\item \textbf{Spatial memory errors}. These errors occur when pointers are dereferenced outside the bounds of their intended areas. The most common example here is a buffer overflow when a data written past the end of memory allocated for the buffer. 
+\end{itemize}
+
+Overall the topic of memory safety has been researched for decades both in academia and industry.
+Many solutions have been proposed to fully eliminate the root cause of the problem, but they are rarely used in practice due to the significant side effects they bring. 
+The primary issue is usually the performance and most of the developed solutions~\cite{hastings1991purify},~\cite{patil1995efficient, patil1997low},~\cite{nagarakatte2009softbound},~\cite{jones1997backwards},~\cite{yong2003protecting, xu2004efficient, nethercote2004bounds}, and ~\cite{dhurjati2006backwards} incur a significant and non-acceptable run-time performance overhead.
+Other typical issues are lack of backwards compatibility~\cite{necula2002ccured},~\cite{grossman2005cyclone},~\cite{austin1994efficient} and a need to make source code changes~\cite{necula2002ccured},~\cite{grossman2005cyclone}. 
+In addition almost all existing mechanisms are developed for the userspace and have not been considered for in-kernel use with the exception of recently developed kCFI~\cite{Rigo} and KENALI~\cite{kenali}. However, even these systems have not been developed with the goal of merging them into the mainline Linux kernel and therefore exhibit some design choices that won't be acceptable by the mainline kernel developers\footnote{\url{http://www.openwall.com/lists/kernel-hardening/2017/08/05/1}}. 
+
+The publication VI of this dissertation takes a deep look on both temporal and spatial memory problems in the Linux kernel and proposes two practical measures that address each of these types of errors. 
+
+\subsection{Preventing temporal memory errors for objects protected by a reference counter}
+\label{sec:kern-mem-ref-count}
+
+A lifetime of a shared object in the Linux kernel is typically managed using a \textbfit{reference counter}. 
+Such counter is incremented every time a reference to an object is taken and decremented when a reference is released. 
+When the counter reaches zero the object can be safely deleted since there are no references to this object anymore (object is not used).
+
+The above presents a simple logic, but practice and history of Linux kernel vulnerabilities (for example CVE-2014-2851, CVE-2016-4558, CVE-2016-0728, CVE-2017-7487 and CVE-2017-8925) shows that reference counting schemes are error prone. If a developer forgets to perform an increment or decrement on some code branch (quite often on a rarely exercised error handling or exception path), it might lead to counter imbalance and as a result incorrect object lifetime handling, i.e. use-after-free situation on the object. This can be misused by attackers in order to construct the efficient and simple kernel exploits. One such example is the exploit based on kernel CVE-2016-0728\footnote{\url{https://www.exploit-db.com/exploits/39277/}}. The exploit abuses a bug inside kernel keyring facility: forgotten decrement of the reference counter when substituting the session keyring with the same keyring. 
+The problem is even bigger given the fact that the current implementation of reference counters in the Linux mainline kernel allows a counter to overflow upon reaching its maximum value (specific to the architecture). 
+
+The first part of the publication VI analyzes how developers have used reference counters in the Linux kernel and contributes to the design of a new reference counter data type \setype{refcount\_t} and API that prevents reference counter overflows. This type and respective API have been accepted into the mainline Linux kernel and are becoming a de-facto standard for implementing reference counters. The work also included overall kernel-wide conversion of existing reference counters to the newly available type and API that resulted into more than 170 accepted patches\todo[inline]{update exact number since it is changing all the time}.  
+
+\subsection{Preventing out-of-bounds memory accesses}
+\label{sec:kern-mem-out-of-bounds}
+
+As was already mentioned in Section~\ref{sec:kern-mem-safety} none of the existing run-time mechanisms to handle memory access errors are directly applicable to the mainline Linux kernel. However other mechanisms are commonly used for the debugging purposes.
+KASAN~\cite{kasan}, integrated in the mainline Linux kernel, is perhaps the most known of them all. It allows to detect a wide range of memory errors, including spatial ones. However its performance overhead is unsuitable for most production use cases.
+Another examples include popular Valgrind~\cite{nethercote2007valgrind} and AddressSanitizer~\cite{serebryany2012addresssanitizer} tools. 
+
+Recently Intel has released a new technology, \intel Memory Protection Extensions (MPX)~\cite{ramakesavan2015intel}, for an efficient run-time prevention of spatial memory errors that is targeting a wide range of end devices from desktops to mobile and embedded processors.
+However until recently, the software support in the Linux kernel and the GCC compiler only worked for user-space applications. 
+ 
+The second part of the publication VI analyzes the software implementation of \intel MPX as well as various challenges of using MPX in the Linux kernel. Next it proposes a new mechanism, \emph{MPX for Kernel (MPXK)}, which is an adaptation of \intel MPX for in-kernel use.
+
+\section{Evaluation}
+
+In order to perform an evaluation of the solutions proposed in this chapter, it is important to consider the original objectives defined in Section~\ref{sec:Objectives}: security, practical deployability and usability. 
+
+The attacks described in Section~\ref{sec:bpf-jit-attack} built a strong case for the mainline acceptance of BPF JIT blinding protections.
+\todo[inline]{I don't understand the angle the BPF/JIT work should be evaluated here... Evaluation of the attacks themselves or resulting solution? But resulting solution is not our work...}
+
+The \setype{refcount\_t} type and API described in Section~\ref{sec:kern-mem-ref-count} guarantees that a reference counter cannot overflows. Therefore it prevents use-after-free vulnerabilities due to missing decrements in the source code that are typically very hard to detect or find in practice. The solution is also practically deployable and usable: it exhibits acceptable performance overhead for most of workloads, can be applied on case-by-case basis and it has been taken into use by its main intended users, kernel developers and maintainers. 
+
+The MPXK mechanism, described in Section~\ref{sec:kern-mem-out-of-bounds}, ensures that pointers to the objects with known bounds cannot be dereferenced outside of these bounds. However in some cases the correct bounds cannot be reliably determined and therefore MPXK has a number of limitations connected with usage of legacy code and some cases of direct pointer manipulations. The practical deployability of MPXK is judged based on a small performance overhead and an ability to apply the protection only in required places (with a compilation unit granularity) compared to the system-wide solutions like KASAN. MPXK does not require any source code changes and it is fully integrated into the Kernel build infrastructure making it easy for kernel developers to enable protection where required.  
+
+A more formal and detailed evaluation of solutions proposed in this chapter can be found in the evaluation sections of publications V and VI. 
