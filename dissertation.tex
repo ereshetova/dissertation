@@ -12,7 +12,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
-\usepackage{acro}
+\usepackage[withpage]{acronym}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -40,11 +40,6 @@
 \newcommand{\textbfit}[1]{{\textbf{\textit{#1}}\xspace}}
 \newcommand{\setype}[1]{{\texttt{#1}\xspace}}
 \newcommand{\intel}[0]{Intel{}\xspace}
-
-\DeclareAcronym{mac}{
-  short = MAC ,
-  long  = Mandatory Access Control
-}
 
 % The author of the dissertation
 \author{Elena Reshetova}
@@ -84,9 +79,36 @@ The following publications are not included in this thesis. However Publication 
 		
 \clearpage
 
-\printacronyms[name={List of Abbreviations}]
-
-%% Add list of abbreviations, list of symbols, etc., using your preferred package/method.
+\chapter*{List of Abbreviations}
+\addcontentsline{toc}{chapter}{List of Abbreviations}%
+\begin{acronym}
+\acro{AC}{Access Control}
+\acro{AOSP}{Android Open Source Project}
+\acro{API}{Application Programming Interface}
+\acro{BPF}{Berkeley Packet Filter}
+\acro{BYOD}{Bring Your Own Device}
+\acro{CVE}{Common Vulnerabilities and Exposures}
+\acro{DAC}{Discretionary Access Control}
+\acro{EVM}{Extended Verification Module}
+\acro{IMA}{Integrity Measurement Architecture}
+\acro{IoT}{Internet of Things}
+\acro{IPC}{Inter Process Communication}
+\acro{JIT}{Just-in-Time Compiler}
+\acro{KALSR}{Kernel Address Space Layout Randomization}
+\acro{KCM}{Kernel Connection Multiplexer}
+\acro{KSPP}{Kernel Self Protection Project}
+\acro{KVM}{Kernel Virtual Machine}
+\acro{LSM}{Linux Security Module}
+\acro{MAC}{Mandatory Access Control}
+\acro{OEM}{Original Equipment Manufacturer}
+\acro{OS}{Operating System}
+\acro{PC}{Personal Computer}
+\acro{ROP}{Return Oriented Programming}
+\acro{TCPA}{Trusted Computing Platform Alliance}
+\acro{TEE}{Trusted Execution Environment}
+\acro{TPM}{Trusted Platform Module}
+\acro{UEFI}{Unified Extensible Firmware Interface}
+\end{acronym}
 
 \chapter{Introduction}
 \label{sec:introduction}
