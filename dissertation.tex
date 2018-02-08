@@ -12,7 +12,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
-\usepackage{glossaries}
+\usepackage{acro}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -41,12 +41,15 @@
 \newcommand{\setype}[1]{{\texttt{#1}\xspace}}
 \newcommand{\intel}[0]{Intel{}\xspace}
 
+\DeclareAcronym{mac}{
+  short = MAC ,
+  long  = Mandatory Access Control
+}
+
 % The author of the dissertation
 \author{Elena Reshetova}
 % The title of the thesis
 \title{Mobile and Embedded Platform Security}
-
-\makeglossaries
 
 \begin{document}
 
@@ -81,10 +84,7 @@ The following publications are not included in this thesis. However Publication 
 		
 \clearpage
 
-%Terms
-\newglossaryentry{mac}{name=MAC, description={Mandatory Access Control}}
-
-\printglossaries
+\printacronyms[name={List of Abbreviations}]
 
 %% Add list of abbreviations, list of symbols, etc., using your preferred package/method.
 
