@@ -1,8 +1,3 @@
-\begin{quoting}
-"Isolation is easy, sharing is hard."
-\todo[inline]{find original source or use Casey's name}
-\end{quoting}
-
 
 The notion of access control (AC) and application/process isolation is one of the oldest in the history of information security with first pioneering works done back in the 70s~\cite{saltzer75, Denning76}. Initially the main goal of AC methods was to isolate different system's users with different level of access to the system assets, but as the computers and other IT devices started to become more and more single-user purpose, the focus has shifted towards isolation of system processes and applications\footnote{in case a process or application becomes compromised, one wants to have the rest of the system and user's data protected}.
  This trend was especially noticeable in various mobile platform security architectures, when the users got the ability to install third-party software on their mobile devices: it required a stricter isolation between system's core platform and services (trusted set of entities) and user installable services and applications (untrusted and potentially malicious).
@@ -31,11 +26,9 @@ Publication II of this thesis starts by examining 8 different SEAndroid policies
 \begin{figure}[t]
 	\centering
 		\includegraphics[width=0.80\textwidth]{figures/selint-archi.pdf}
-	\caption{The architecture of SELint (From Publication III)}
+	\caption{The architecture of SELint (Adapted from Publication III)}
 	\label{fig:selint}
 \end{figure}
-
-\todo[inline]{Remember to either get the copyright permission or modify the figure}   
 
 As a result of above study, Publication II proposes a set of tools that should help both OEMs and security researchers to develop better SEAndroid policies without the above-mentioned pitfalls, including various policy analyzers and virtualization tools. It also implements one such tool, a live SEAndroid policy analyzer (SEAL), that allows performing different policy queries, not only based on the actual policy loaded on a device, but also also based on the run-time device state, i.e. running processes and services, filesystem labeling etc. SEAL allows obtaining fast answers on various questions that a SEAndroid policy writer or analyzer might have, such as "\textit{What files can a given running process access on a device?}" or "\textit{What processes can access a given object?}". This significantly simplifies the debugging, troubleshooting and studying the given SEAndroid policy and gives a fast way to discover the inconsistencies. 
 
@@ -64,7 +57,7 @@ In contrary to the traditional virtualization solutions, like well-known Xen hyp
   \caption{Attacker model}
   \label{fig:osv-2}
 \end{subfigure}
-\caption{OS-level virtualization}
+\caption{OS-level virtualization. (Adapted from Publication VI)}
 \label{fig:os-virtualization}
 \end{figure}
 
