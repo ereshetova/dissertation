@@ -1,13 +1,13 @@
 
-In this thesis, we have presented the overall platform security model for mobile and embedded devices, as well as discussed some of its most challenging aspects in present days, such as process and application isolation, access control and overall OS kernel hardening.
-The thesis has also proposed a set of tools and mechanisms to help improve the above-mentioned aspects further: 
+In this dissertation, we have presented the overall platform security model for mobile and embedded devices, as well as discussed some of its most challenging aspects in present days, such as process and application isolation, access control and overall OS kernel hardening.
+The dissertation has also proposed a set of tools and mechanisms to help improve the above-mentioned aspects further: 
 \begin{enumerate}
 	\item the SEAL and SELint tools for SEAndroid MAC policy development and analysis,
 	\item the reference counter overflow protection mechanism for the mainline Linux kernel that prevents typical use-after-free vulnerabilities for shared kernel objects,
 	\item MPXK, a run-time technique to detect spatial memory errors in the mainline Linux kernel. 
 \end{enumerate}
 
-While we argue that this thesis's work presents a valuable contribution to the present-day mobile and embedded platform security research, it is also important to consider the future challenges and directions concerning the thesis topics:
+While we argue that this dissertation's work presents a valuable contribution to the present-day mobile and embedded platform security research, it is also important to consider the future challenges and directions concerning the dissertation topics:
 
 \begin{itemize}
 	\item \textbf{Mobile platform security continues to evolve and further develop its existing mechanisms.} While we likely won't see any big revolutionary changes in the mobile platform security architectures, the gradual step by step improvement of all its pieces will continue. The mandatory access control (MAC) mechanisms will remain a foundation stone for isolating processes and applications on mobile platforms, MAC policies will improve and become more fine-grained and precise. At the same time, the importance of the OS kernel hardening will prevail since more and more exploits are targeting the kernel itself~\cite{stoep2016android}. In addition, the interfaces towards security HW will develop and extend in order to enable many new desired use cases in payments, transportation, healthcare etc.
