@@ -53,21 +53,30 @@
 
 \begin{document}
 
+\widowpenalty10000
+\clubpenalty10000
+
 %% The abstract of the dissertation in English
 % Use this command!
 \draftabstract{\lipsum[1-3]}
-\input{chapters/abstract.tex}
+%\input{chapters/abstract.tex}
 % Let's add another one in Finnish
 %\draftabstract[finnish]{\lipsum[4-6]}
 % And yet another one in Swedish
 %\draftabstract[swedish]{\lipsum[7-9]}
 
-
 %% Preface
 % If you write this somewhere else than in Helsinki, use the optional location.
-%\begin{preface}[Sipoo]
-%TBD
-%\end{preface}
+\begin{preface}[Sipoo]
+
+This dissertation is a result of the long learning journey from my internship and work at Nokia Research Center, Nokia Research and Development (R\&D), Intel Open Source Technology Center and my doctoral studies at the Department of Computer Science in Aalto University School of Science. I have been extremely lucky to work with and learn from many people on this journey, and I am grateful to each of them for the chance to grow my competence, skills and knowledge. 
+
+I am more than grateful to my supervisor, Professor N. Asokan, for his excellent guidance, continuous support, enormous patience and encouragement through all these years. This dissertation would not have been possible otherwise. 
+
+I am also grateful to my past and present work team leaders, Janne Mantyla, Ryan Ware and Deneen Dock for their support and understanding. Additionally I would like to thank all other people that have contributed to this work. Professor Tuomas Aura, for the start of my doctoral studies at the Aalto University. My co-authors, Kari Kostiainen, Jan-Erik Ekberg, Filippo Bonazzi, Thomas Nyman, Ravishankar Borgaonkar, Janne Karhunen, Hans Liljestrand, and Andrew Paverd. Linux Security community and especially Kees Cook, William Roberts and Daniel Borkmann, for giving valuable inputs and guidance for the kernel hardening and SEAndroid work. My pre-examiners, Dr. Alastair Beresford and Dr. Sven Bugiel, for their thorough reviews, valuable feedback and suggestions. Mustafa Masood, for his useful feedback and English correction on drafts of this dissertation. And lastly, Dr. Michael Steiner, for the honor of having him as the opponent for my dissertation. This work also has been supported in part by the Intel Collaborative Research Institute for Secure Computing at Aalto University.
+
+Finally, I would like to thank my family and my husband, Janne, for their support and love on this long learning journey. 
+\end{preface}
 
 %% Table of contents of the dissertation
 \clearpage
@@ -202,7 +211,7 @@ Volume 35, Number 4}, August 2010
 \addpublicationpdf{publications/P5.pdf}
 
 
-\addpublication[submitted]{Reshetova, Elena and Liljestrand, Hans and Paverd, Andrew and Asokan, N}{Towards Linux Kernel Memory Safety}{a journal}{Location, pages, and other detailed information to be defined}{April}{2018}{Published TBD}{c6}
+\addpublication[submitted]{Reshetova, Elena and Liljestrand, Hans and Paverd, Andrew and Asokan, N}{Towards Linux Kernel Memory Safety}{a journal}{Location, pages, and other detailed information to be defined}{July}{2018}{Published TBD}{c6}
 % Add the dissertation author's contribution to that publication.
 \addcontribution{The author's contribution to this publication includes working on the design, implementation and mainline Linux kernel contribution of the reference counter overflow protection mechanism. In addition, the author also worked on the design of \textit{MPXK}, a spatial memory error protection solution for the Linux kernel, presented in this publication. The implementation of MPXK was done by Hans Liljestrand. The author also contributed to the writing of this publication together with other authors.}
 % No errata
